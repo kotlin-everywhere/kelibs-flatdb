@@ -1,0 +1,11 @@
+#gradle
+build/
+.gradle
+
+#Intellj
+.idea/
+out/
+*.iml
+
+#etc
+*.swp
