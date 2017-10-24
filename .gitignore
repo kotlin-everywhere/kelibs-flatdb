@@ -2,6 +2,10 @@
 build/
 .gradle
 
+#node
+build/
+node_modules/
+
 #Intellj
 .idea/
 out/
