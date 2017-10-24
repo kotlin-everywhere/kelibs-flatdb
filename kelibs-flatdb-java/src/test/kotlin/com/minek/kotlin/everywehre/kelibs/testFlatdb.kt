@@ -10,7 +10,7 @@ import org.junit.Test
 class TestFlatdb {
     @Test
     fun testFind() {
-        val li = (0..9).map { r(it) }
+        val li = (0..9).map(::SimpleRow)
         assertEquals(li[0], li.find(0))
         assertEquals(li[3], li.find(3))
         assertEquals(li[9], li.find(9))
@@ -35,11 +35,6 @@ class TestFlatdb {
         assertEquals(listOf(a, b, c), li.replaceOrAdd(d, false))
     }
 
-    private fun <T> r(pk: T): Row<T> {
-        return object : Row<T> {
-            override val pk = pk
-        }
-    }
-
+    data class SimpleRow<out T>(override val pk: T) : Row<T>
     data class StringRow(override val pk: String, val value: String) : Row<String>
 }
